@@ -1,15 +1,15 @@
 {
   "name": "electron-node-addon",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A minimal Electron + Node Addon application",
   "main": "src/electron/main.js",
   "scripts": {
     "start": "electron .",
     "build": "node ./build.js",
     "clean": "node -e \"require('shelljs').rm('-rf', './build');\""
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "author": "GitHub",
+  "repository": "https://github.com/rogeriorc/electron-node-addon",
+  "author": "rogeriorc",
   "license": "MIT",
   "devDependencies": {
     "cmake-cli": "0.0.3",
