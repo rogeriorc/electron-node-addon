@@ -1,0 +1,28 @@
+{
+  "name": "electron-node-addon",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "src/electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "node ./build.js",
+    "clean": "node -e \"require('shelljs').rm('-rf', './build');\""
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "author": "GitHub",
+  "license": "MIT",
+  "devDependencies": {
+    "cmake-cli": "0.0.3",
+    "cmake-js": "^5.1.0",
+    "electron": "4.0.8",
+    "shelljs": "^0.8.3"
+  },
+  "config": {
+    "generator": {
+      "win32": "Visual Studio 14 2015",
+      "linux": "Unix Makefiles"
+    },
+    "runtime": "electron",
+    "arch": "x64"
+  }
+}
