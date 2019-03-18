@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron'),
-  path = require('path');
+  path = require('path'),
+  basedir = path.join(__dirname, '..', '..'),
+  pkg = require(path.join(basedir, 'package.json'));
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -16,14 +18,18 @@ function createWindow() {
     }
   });
 
+
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   //var addonFile = path.join(__dirname, '..', '..', 'build', 'context_aware.node');
-  var addonFile = path.join(__dirname, '..', '..', 'build', 'hello_world.node');
+  var addonFile = path.join(basedir, 'build', pkg.config.addon + '.node');
+
+  console.log(`requiring ${addonFile}...`);
+
   var addon = require(addonFile);
 
-  console.log(addon);
+  console.log('require ok!', addon);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

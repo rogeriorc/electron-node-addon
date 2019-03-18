@@ -22,7 +22,11 @@
       "win32": "Visual Studio 14 2015",
       "linux": "Unix Makefiles"
     },
-    "runtime": "electron",
-    "arch": "x64"
+    "runtime": {
+      "target": "electron",
+      "version": "4.0.8",
+      "arch": "x64"
+    },
+    "addon": "context_aware"
   }
 }

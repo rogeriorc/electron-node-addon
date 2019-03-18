@@ -17,7 +17,7 @@ let pkg = require('./package.json'),
 if (process.platform === 'win32') {
     cmakeJs += '.cmd';
 
-    if (config.arch === 'x64')
+    if (config.runtime.arch === 'x64')
         generator += ' Win64';
 }
 
@@ -29,10 +29,10 @@ let args = [
     `--directory=${srcDir}`,
     `--cmake-path=${cmake.path()}`,
     `--generator=${generator}`,
-    `--arch=${config.arch}`,
     `--out=${targetDir}`,
-    `--runtime=${config.runtime}`,
-    `--runtime-version=${pkg.devDependencies.electron}`,
+    `--runtime=${config.runtime.target}`,
+    `--runtime-version=${config.runtime.version}`,
+    `--arch=${config.runtime.arch}`,
     `--CDPROJECT_OUTPUT_DIR:STRING=${outputDir}`  
 ];
 
