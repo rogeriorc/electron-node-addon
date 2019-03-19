@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "build": "node ./build.js",
-    "clean": "node -e \"require('shelljs').rm('-rf', './build');\""
+    "clean": "node -e \"require('shelljs').rm('-rf', './build');\"",
+    "hello-world": "electron . -- hello_world",
+    "context-aware": "electron . -- context_aware"    
   },
   "repository": "https://github.com/rogeriorc/electron-node-addon",
   "author": "rogeriorc",
@@ -14,8 +16,8 @@
   "devDependencies": {
     "cmake-cli": "0.0.3",
     "cmake-js": "^5.1.0",
-    "electron": "4.0.8",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "electron": "4.1.0"
   },
   "config": {
     "generator": {
@@ -24,7 +26,7 @@
     },
     "runtime": {
       "target": "electron",
-      "version": "4.0.8",
+      "version": "4.1.0",
       "arch": "x64"
     },
     "addon": "context_aware"

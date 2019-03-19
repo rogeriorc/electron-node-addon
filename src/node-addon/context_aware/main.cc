@@ -41,9 +41,13 @@ static void Method(const v8::FunctionCallbackInfo<v8::Value>& info) {
   info.GetReturnValue().Set((double)data->call_count);
 }
 
+#if NODE_VERSION_AT_LEAST(10, 0, 0)
 // Initialize this addon to be context-aware.
 NODE_MODULE_INIT(/* exports, module, context */) {
-  Isolate* isolate = context->GetIsolate();
+#else
+void Initialize(v8::Local<v8::Object> exports, v8::Local<v8::Value> module, v8::Local<v8::Context> context, void* priv) {
+#endif
+	Isolate* isolate = context->GetIsolate();
 
   // Create a new instance of AddonData for this instance of the addon.
   AddonData* data = new AddonData(isolate, exports);
@@ -59,3 +63,7 @@ NODE_MODULE_INIT(/* exports, module, context */) {
                FunctionTemplate::New(isolate, Method, external)
                   ->GetFunction(context).ToLocalChecked()).FromJust();
 }
+
+#if !NODE_VERSION_AT_LEAST(10, 0, 0)
+NODE_MODULE_CONTEXT_AWARE(context_aware, Initialize)
+#endif

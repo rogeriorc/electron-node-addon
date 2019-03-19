@@ -21,6 +21,7 @@ if (process.platform === 'win32') {
         generator += ' Win64';
 }
 
+shelljs.rm('-rf', outputDir);
 shelljs.mkdir('-p', targetDir);
 
 let args = [

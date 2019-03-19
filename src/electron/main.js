@@ -6,7 +6,8 @@ const { app, BrowserWindow } = require('electron'),
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+let mainWindow,
+  addon = pkg.config.addon;
 
 function createWindow() {
   // Create the browser window.
@@ -18,14 +19,19 @@ function createWindow() {
     }
   });
 
+  console.log(process.argv);
+
+  if (process.argv.length >= 4) {
+    addon = process.argv[process.argv.length - 1];
+  }
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   //var addonFile = path.join(__dirname, '..', '..', 'build', 'context_aware.node');
-  var addonFile = path.join(basedir, 'build', pkg.config.addon + '.node');
+  var addonFile = path.join(basedir, 'build', addon + '.node');
 
-  console.log(`requiring ${addonFile}...`);
+  console.log(`requiring "${addonFile}"...`);
 
   var addon = require(addonFile);
 

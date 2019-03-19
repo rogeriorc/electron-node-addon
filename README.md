@@ -1,18 +1,34 @@
 # electron-node-addon
 
-**To build the node addons and run, use:**
+**To build the node addons use:**
 
 ```bash
 npm install
 npm run build
-npm start
 ```
+
+**To run the example requiring the addon on _src/node-addon/hello_world_**
+
+```bash
+npm run hello-world
+```
+
+**To run the example requiring the addon on _src/node-addon/context_aware**
+
+```bash
+npm run context-aware
+```
+
 
 **To configure**
 
 Edit in the package.json:
 
 ```json
+  "devDependencies": {
+    ...
+    "electron": "4.1.0"
+  },
   "config": {
     "generator": {
       "win32": "Visual Studio 14 2015",
@@ -20,18 +36,25 @@ Edit in the package.json:
     },
     "runtime": {
       "target": "electron",
-      "version": "4.0.8",
+      "version": "4.1.0",
       "arch": "x64"
-    },
-    "addon": "context_aware"
+    }
   }
 
 ```
-* generator: The target generator CMake will use, per platform
-* runtime.target: Electron runtime
-* runtime.version: Electron version
-* runtime.arch: Target architecture
-* addon: The addon that will be require()'d
+* devDependencies.electron: Electron version
 
+* config.generator: The target generator CMake will use, per platform
 
+* config.runtime.target: Electron runtime
 
+* config.runtime.version: Electron version
+
+* config.runtime.arch: Target architecture
+
+After change the _devDependencies.electron_ and _config.runtime.version_, reinstall and build:
+
+```bash
+npm install
+npm run build
+```
