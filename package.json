@@ -8,7 +8,7 @@
     "build": "node ./build.js",
     "clean": "node -e \"require('shelljs').rm('-rf', './build');\"",
     "hello-world": "electron . -- hello_world",
-    "context-aware": "electron . -- context_aware"    
+    "context-aware": "electron . -- context_aware"
   },
   "repository": "https://github.com/rogeriorc/electron-node-addon",
   "author": "rogeriorc",
