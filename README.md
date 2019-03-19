@@ -52,7 +52,7 @@ Edit in the package.json:
 
 * config.runtime.arch: Target architecture
 
-After change the _devDependencies.electron_ and _config.runtime.version_, reinstall and build:
+After change the _devDependencies.electron_ and _config.runtime.version_, reinstall and rebuild:
 
 ```bash
 npm install
